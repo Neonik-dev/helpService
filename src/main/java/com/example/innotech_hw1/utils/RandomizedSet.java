@@ -16,7 +16,7 @@ public class RandomizedSet<E> {
         Arrays.stream(values).forEach(this::insert);
     }
 
-    public boolean insert(E val) {
+    public synchronized boolean insert(E val) {
         if (dict.containsKey(val)) {
             return false;
         }
@@ -26,7 +26,7 @@ public class RandomizedSet<E> {
         return true;
     }
 
-    public boolean remove(E val) {
+    public synchronized boolean remove(E val) {
         if (!dict.containsKey(val)) {
             return false;
         }
@@ -42,7 +42,7 @@ public class RandomizedSet<E> {
         return true;
     }
 
-    public E getRandom() {
+    public synchronized E getRandom() {
         if (lastIndex == -1) {
             throw new NullPointerException("Set is empty!");
         }
