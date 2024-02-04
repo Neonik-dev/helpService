@@ -1,7 +1,5 @@
 package com.example.innotech_hw1.services;
 
-import com.example.innotech_hw1.services.HelpService;
-import com.example.innotech_hw1.services.IHelpService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
