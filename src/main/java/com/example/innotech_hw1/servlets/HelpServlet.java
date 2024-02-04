@@ -23,11 +23,13 @@ public class HelpServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String phrase = req.getReader().lines().collect(Collectors.joining("\n"));
         helpService.addPhrase(phrase);
+        resp.setStatus(HttpServletResponse.SC_OK);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("text/plain");
+        resp.setStatus(HttpServletResponse.SC_OK);
         try (PrintWriter printWriter = resp.getWriter()) {
             printWriter.println(helpService.getPhrase());
             printWriter.flush();
